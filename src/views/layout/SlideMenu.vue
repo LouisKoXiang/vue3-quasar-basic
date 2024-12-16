@@ -47,6 +47,15 @@
           <q-item-label caption>Api fetch test</q-item-label>
         </q-item-section>
       </q-item>
+      <q-item clickable tag="router-link" :to="{ name: 'address-select' }">
+        <q-item-section avatar>
+          <q-icon name="rss_feed" />
+        </q-item-section>
+        <q-item-section>
+          <q-item-label>address-select</q-item-label>
+          <q-item-label caption>address-select</q-item-label>
+        </q-item-section>
+      </q-item>
     </q-list>
   </q-drawer>
 </template>

@@ -4,6 +4,7 @@ import ProductList from '../views/ProductList.vue'
 import CreateProduct from '../views/CreateProduct.vue'
 import UserInfo from '@/views/UserInfo.vue'
 import ApiFetchTest from '@/views/ApiFetchTest.vue'
+import AddressSelect from '@/views/AddressSelect.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -30,6 +31,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/Api-Test',
     name: 'api-test',
     component: ApiFetchTest
+  },
+  {
+    path: '/address-select',
+    name: 'address-select',
+    component: AddressSelect
   }
 ]
 
