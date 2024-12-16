@@ -52,7 +52,7 @@ const data = ref([
   { text: '台北市', value: '台北市', parent: null, zip: null },
   { text: '新北市', value: '新北市', parent: null, zip: null },
   { text: '中正區', value: '中正區', parent: '台北市', zip: '100' },
-  { text: '松山區', value: '松山區', parent: '台北市', zip: '105' },
+  { text: '松山區1', value: '松山區1', parent: '台北市', zip: '105' },
   { text: '林口區', value: '林口區', parent: '新北市', zip: '244' }
 ])
 
