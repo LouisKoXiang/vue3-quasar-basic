@@ -63,59 +63,51 @@
   </q-page>
 </template>
 
-<script>
+<script setup lang="ts">
 import { ref } from 'vue'
+import apiservice from '../utils/ApiService'
 
-export default {
-  setup () {
-    // 模擬產品數據
-    const products = ref([
-      {
-        id: 1,
-        name: '筆記型電腦',
-        price: 29999,
-        category: '電子產品',
-        inStock: true
-      },
-      {
-        id: 2,
-        name: '冬季外套',
-        price: 1999,
-        category: '服飾',
-        inStock: false
-      },
-      {
-        id: 3,
-        name: '廚房用具',
-        price: 999,
-        category: '家居用品',
-        inStock: true
-      }
-    ])
+interface ProductDetail {
+  id: number
+  name: string
+  price: number
+  category: string
+  inStock: boolean
+}
 
-    // 新增產品
-    const addProduct = () => {
-      alert('新增產品功能尚未實作！')
-    }
+interface ProductList {
+  productList: ProductDetail[]
+}
 
-    // 編輯產品
-    const editProduct = id => {
-      alert(`正在編輯產品 ID: ${id}`)
-    }
+// 模擬產品數據
+const products = ref([] as ProductDetail[])
 
-    // 刪除產品
-    const deleteProduct = id => {
-      alert(`產品 ID: ${id} 已刪除`)
-    }
+// 新增產品
+const addProduct = () => {
+  alert('新增產品功能尚未實作！')
+}
 
-    return {
-      products,
-      addProduct,
-      editProduct,
-      deleteProduct
-    }
+// 編輯產品
+const editProduct = (id: number) => {
+  alert(`正在編輯產品 ID: ${id}`)
+}
+
+// 刪除產品
+const deleteProduct = (id: number) => {
+  alert(`產品 ID: ${id} 已刪除`)
+}
+
+const fetchData = async () => {
+  // 使用背景錯誤處理
+  const data = await apiservice.fetchApiWithoutPromise<ProductList>(
+    '/api/product.json'
+  )
+  if (data?.productList) {
+    products.value = data.productList
   }
 }
+
+fetchData()
 </script>
 
 <style scoped>
